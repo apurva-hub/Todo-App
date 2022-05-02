@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import Fire from "./Fire";
+import { onAuthStateChanged, getAuth, signOut } from "firebase/auth";
+import { useEffect, useState } from "react";
+import Form from "./Form";
+import Home from "./Home";
 
 function App() {
+  const [loggedInEmail, setLoggedInEmail] = useState();
+  const auth = getAuth();
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setLoggedInEmail(user.email);
+      } else {
+        setLoggedInEmail(null);
+      }
+    });
+  }, []);
+
+  const logout = () => {
+    signOut(auth);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {loggedInEmail ? (
+        <Home logout={logout} userEmail={loggedInEmail} />
+      ) : (
+        <Routes>
+          <Route path="/" element={<Form pageTitle="Login" />} />
+          <Route path="/Register" element={<Form pageTitle="Register" />} />
+        </Routes>
+      )}
     </div>
   );
 }

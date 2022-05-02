@@ -1,13 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Arapey&family=Handlee&display=swap");
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  padding-left: 10rem;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.login_form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 6rem;
+}
+
+.login_label {
+  color: #545454;
+  font-size: 18px;
+  padding-top: 1rem;
+  padding-bottom: 10px;
+}
+
+.login_input {
+  width: 30rem;
+  height: 2.5rem;
+  border-radius: 6px;
+  border: 2px solid #b3b3b3;
+}
+
+.button {
+  background-color: #f2f5ff;
+  color: #202020;
+  border: none;
+  box-shadow: -2px 3px #bfc9ec;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.login-button {
+  margin-top: 2rem;
+  width: 6rem;
+  height: 3rem;
+  border-radius: 2rem;
+}
+
+.logout-button {
+  width: 6rem;
+  height: 3rem;
+  border-radius: 2rem;
+}
+
+.logout-layout {
+  display: flex;
+  justify-content: flex-end;
+  width: 95%;
+  margin-top: 2rem;
+}
+
+.input-task {
+  border: none;
+  border-bottom: 2px solid #b3b3b3;
+  width: 45%;
+  font-size: large;
+  font-family: "Handlee", cursive;
+  color: black;
+}
+
+.addtask-button {
+  cursor: pointer;
+  border: none;
+  background-color: white;
+  margin-left: 1rem;
+}
+
+.search-area {
+  display: flex;
+
+  margin-bottom: 2rem;
+}
+
+.added-tasktitle {
+  font-family: "Handlee", cursive;
+  font-size: 2em;
+  margin-right: 1rem;
+}
+
+.added-tasks {
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.delete-button {
+  cursor: pointer;
+  border: none;
+  background-color: white;
+}
+
+.checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  accent-color: #b3b3b3;
+  margin-right: 1.25rem;
+}
+
+.task-layout {
+  padding-left: 20%;
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    padding-left: 0px;
+  }
+  .login_input {
+    width: 20rem;
+  }
+  .logout-button {
+    margin-bottom: 2rem;
+  }
+  .task-layout {
+    padding-left: 0%;
+  }
 }
