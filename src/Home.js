@@ -2,10 +2,10 @@ import { app, db } from "./Fire";
 import {
   collection,
   addDoc,
-  getDocs,
   deleteDoc,
   doc,
   updateDoc,
+  onSnapshot,
 } from "firebase/firestore";
 import { useState, useEffect } from "react";
 
@@ -41,14 +41,14 @@ const Home = (props) => {
   };
 
   const getData = async () => {
-    const data = await getDocs(usersCollectionRef);
-    setgetTask(
-      data.docs.map((item) => {
-        return { ...item.data(), id: item.id };
-      })
-    );
+    onSnapshot(collection(db, props.userEmail), (doc) => {
+      setgetTask(
+        doc.docs.map((item) => {
+          return { ...item.data(), id: item.id };
+        })
+      );
+    });
   };
-
   useEffect(() => {
     getData();
   }, []);
