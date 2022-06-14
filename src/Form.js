@@ -19,7 +19,7 @@ const Form = (props) => {
         alert(error.message);
       });
   };
-
+//create a new user
   const createUser = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
